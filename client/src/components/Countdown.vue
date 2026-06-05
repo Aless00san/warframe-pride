@@ -147,6 +147,12 @@ h1 {
   50% { opacity: 0.4; }
 }
 
+@media (min-width: 1600px) {
+  .countdown-page {
+    zoom: 1.35;
+  }
+}
+
 .no-event {
   color: var(--text-dim);
   font-size: 1.125rem;
