@@ -1,0 +1,85 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg: #0f0f1a;
+  --surface: #1a1a2e;
+  --text: #e0e0e0;
+  --text-dim: #8888aa;
+  --accent: #ffd700;
+  --accent-dim: #b8960f;
+  --border: #2a2a4a;
+  --sans: 'Exo 2', system-ui, 'Segoe UI', Roboto, sans-serif;
+
+  --pride-red: #E40303;
+  --pride-orange: #FF8C00;
+  --pride-yellow: #FFED00;
+  --pride-green: #008026;
+  --pride-blue: #004DFF;
+  --pride-purple: #750787;
+  --pride-black: #000000;
+  --pride-brown: #613915;
+  --pride-cyan: #55CDFC;
+  --pride-pink: #F7A8B8;
+  --pride-white: #FFFFFF;
+}
+
+html {
+  font-family: var(--sans);
+  background: var(--bg);
+  color: var(--text);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  min-height: 100vh;
+  background:
+    repeating-linear-gradient(
+      135deg,
+      transparent 0px,
+      transparent 28px,
+      color-mix(in srgb, var(--pride-red) 8%, transparent) 28px,
+      color-mix(in srgb, var(--pride-red) 8%, transparent) 30px,
+      transparent 30px,
+      transparent 58px,
+      color-mix(in srgb, var(--pride-orange) 8%, transparent) 58px,
+      color-mix(in srgb, var(--pride-orange) 8%, transparent) 60px,
+      transparent 60px,
+      transparent 88px,
+      color-mix(in srgb, var(--pride-yellow) 8%, transparent) 88px,
+      color-mix(in srgb, var(--pride-yellow) 8%, transparent) 90px,
+      transparent 90px,
+      transparent 118px,
+      color-mix(in srgb, var(--pride-green) 8%, transparent) 118px,
+      color-mix(in srgb, var(--pride-green) 8%, transparent) 120px,
+      transparent 120px,
+      transparent 148px,
+      color-mix(in srgb, var(--pride-blue) 8%, transparent) 148px,
+      color-mix(in srgb, var(--pride-blue) 8%, transparent) 150px,
+      transparent 150px,
+      transparent 178px,
+      color-mix(in srgb, var(--pride-purple) 8%, transparent) 178px,
+      color-mix(in srgb, var(--pride-purple) 8%, transparent) 180px,
+      transparent 180px
+    ),
+    var(--bg);
+}
+
+#app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
