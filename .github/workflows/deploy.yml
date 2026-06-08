@@ -21,6 +21,7 @@ jobs:
         working-directory: ./client
         env:
           VITE_API_URL: ${{ vars.VITE_API_URL }}
+      - run: cp client/dist/index.html client/dist/404.html
       - uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
