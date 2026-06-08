@@ -111,7 +111,7 @@ onMounted(() => {
 
 <template>
   <div class="admin-panel">
-    <a href="/" class="back-link">&larr; Back to countdown</a>
+    <router-link to="/" class="back-link">&larr; Back to countdown</router-link>
     <h1>Admin Panel</h1>
 
     <div v-if="!apiKey" class="key-prompt">
