@@ -5,10 +5,5 @@
   },
   "deploy": {
     "startCommand": "npm start"
-  },
-  "volumes": {
-    "/data": {
-      "name": "db-data"
-    }
   }
 }
