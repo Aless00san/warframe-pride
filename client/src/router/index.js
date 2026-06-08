@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 
 const routes = [
   {
@@ -11,10 +11,14 @@ const routes = [
     name: 'Admin',
     component: () => import('../components/AdminPanel.vue'),
   },
+  {
+    path: '/:pathMatch(.*)*',
+    redirect: '/',
+  },
 ]
 
 const router = createRouter({
-  history: createWebHistory('/warframe-pride/'),
+  history: createWebHashHistory('/warframe-pride/'),
   routes,
 })
 
