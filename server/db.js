@@ -1,10 +1,13 @@
 import Database from 'better-sqlite3'
 import path from 'path'
+import fs from 'fs'
 import { fileURLToPath } from 'url'
 import { seedEvents } from './seed-data.js'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
-const db = new Database(path.join(__dirname, '..', 'data.sqlite'))
+const dataDir = process.env.DATA_DIR || path.join(__dirname, '..')
+if (!fs.existsSync(dataDir)) fs.mkdirSync(dataDir, { recursive: true })
+const db = new Database(path.join(dataDir, 'data.sqlite'))
 
 db.pragma('journal_mode = WAL')
 
