@@ -1,6 +1,6 @@
 <script setup>
 import { ref, onMounted } from 'vue'
-import { getEvents, createEvent, updateEvent, deleteEvent, endEvent } from '../api.js'
+import { getEvents, verifyApiKey, createEvent, updateEvent, deleteEvent, endEvent } from '../api.js'
 
 const apiKeyInput = ref('')
 const apiKey = ref(sessionStorage.getItem('wf_api_key') || '')
@@ -17,13 +17,16 @@ async function fetchEvents() {
 
 async function submitKey() {
   if (!apiKeyInput.value) return
-  apiKey.value = apiKeyInput.value
-  sessionStorage.setItem('wf_api_key', apiKey.value)
   loading.value = true
   error.value = ''
   try {
+    await verifyApiKey(apiKeyInput.value)
+    apiKey.value = apiKeyInput.value
+    sessionStorage.setItem('wf_api_key', apiKey.value)
     await fetchEvents()
   } catch (e) {
+    apiKey.value = ''
+    sessionStorage.removeItem('wf_api_key')
     error.value = e.message
   } finally {
     loading.value = false
@@ -34,8 +37,11 @@ async function load() {
   loading.value = true
   error.value = ''
   try {
+    await verifyApiKey(apiKey.value)
     await fetchEvents()
   } catch (e) {
+    apiKey.value = ''
+    sessionStorage.removeItem('wf_api_key')
     error.value = e.message
   } finally {
     loading.value = false

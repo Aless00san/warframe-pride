@@ -6,6 +6,10 @@ const router = Router()
 
 router.use(auth)
 
+router.get('/verify', (req, res) => {
+  res.json({ ok: true })
+})
+
 function tz(ts, offset) {
   if (!ts) return ts
   if (ts.endsWith('Z') || /[-+]\d{2}:\d{2}$/.test(ts)) return ts

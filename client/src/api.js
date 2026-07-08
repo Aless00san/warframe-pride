@@ -23,6 +23,12 @@ export function getEvents() {
   return request('/events')
 }
 
+export function verifyApiKey(apiKey) {
+  return request('/admin/events/verify', {
+    headers: { 'x-api-key': apiKey },
+  })
+}
+
 export function createEvent(data, apiKey) {
   return request('/admin/events', {
     method: 'POST',
